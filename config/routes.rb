@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   root to: 'welcome#index'
 
-  resources :feed, only: [:index]
-  resources :list, only: [:index, :show]
+  resources :feeds, only: [:index]
+  resources :lists, only: [:index, :show]
 
 end
