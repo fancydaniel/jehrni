@@ -14,8 +14,11 @@
  *= require_self
  */
 
- @import url(http://fonts.googleapis.com/css?family=Raleway:700,400,200);
- @import url(http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,700);
+ 
+ @import url(https://fonts.googleapis.com/css?family=Dosis:300,400,500,600);
+ @import url(https://fonts.googleapis.com/css?family=Scheherazade);
+ @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
+ 
 
 
 /* ---- BODY STYLES ---- */
@@ -42,23 +45,52 @@ body {
   margin: 0 auto;
   padding-left: 5px;
 }
+section {
+  width: 100%;
+}
 
  /* ---- TYPOGRAPHY STYLES 
 --------------------------------------------------------------------------
  ---- */
 
-h1 {
-  font-family: 'Raleway', Helvetica, sans-serif;  
+
+p {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.3rem;
+  font-size: 1rem;
+}
+
+small {
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
+  line-height: 1rem;
+  font-size: .8rem;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-family: 'Dosis', Helvetica, sans-serif;  
+  font-weight: 200;
+}
+h1 {
   font-size: 3.2rem;
   line-height: 1.8rem;
 }
-
-
-p {
-  font-family: 'Crimson Text', serif;
-  line-height: 1.2rem;
-  font-size: 1.15rem;
+h2 {
+  font-size: 2.7rem;
+  line-height: 1.8rem;
+}
+h3 {
+  font-size: 2.2rem;
+  line-height: 1.8rem;
+}
+h4 {
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+}
+h5 {
+  font-size: 1.5rem;
+  line-height: 1.8rem;
 }
 
 
@@ -67,7 +99,7 @@ p {
 nav {
   display: block;
   width: 100%;
-  height: 50;
+  height: 100%;
   
 }
 
@@ -87,7 +119,7 @@ li {
   list-style: none;
   display: inline-block;
   padding-right: 15px;
-  font-size: 1rem;
+  font-size: 1.05rem;
   margin-bottom: 1rem;
 }
 
@@ -98,13 +130,16 @@ li:first-of-type {
 a {
   color: #4A5659;
   text-decoration: none;
+  font-weight: 300;
   font-size: 1.15em;
-  font-family: 'Raleway', Helvetica, sans-serif;
+  font-family: 'Dosis', Helvetica, sans-serif;
 }
 
 a:hover {
-  color: #7F9499;
+  color: #262C2E;
+  text-shadow: 3px 2px 2px rgba(106, 123, 127, 0.7);
   opacity: 1 !important;
+  font-weight: 400;
 }
 
 /* ---- Section Styles ---- */
@@ -121,7 +156,7 @@ section {
 
 
 .side {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   min-height: 100%;
@@ -143,7 +178,7 @@ section {
   text-align: right;
 }
 
-#feed {
+#feed, .lists {
   margin-left: 20%;
   position: relative;
   padding: 20px 0 0 25px;
@@ -152,4 +187,47 @@ section {
   float: left;
 }
 
+.thirds { /* Divide the list view in index to third of the page */
+  padding: 25px 0 0 0;
+  width: 32%;
+  display: block;
+  float: left;
+  margin-bottom: 25px;
+}
+
+.padding-bottom { /* Prevent pages with form from touching */
+  padding-bottom: 25px;
+}
+
+/* ---- Flash Notices
+--------------------------------------------------------------------------
+---- */
+
+.alert {
+  padding: 8px 35px 8px 14px;
+  margin-bottom: 18px;
+  font-family: 'Dosis', sans-serif;
+  font-weight: 400;
+}
+
+.error {
+  background-color: #E86664;
+  border: 1px solid #E04D61;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  color: #611923;
+  font-size: 1.35em;
+  font-weight: 500;
+}
+
+.notice {
+  background-color: #64E88D;
+  border: 1px solid #74DB95;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  color: #194C29;
+  font-size: 1.25em;
+}
 

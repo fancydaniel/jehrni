@@ -13,6 +13,18 @@
     <%= render "nav" %>
   </div>
 
+  <div class="lists">
+    <% if flash[:notice] %>
+      <div class="alert notice">
+        <%= flash[:notice] %>
+      </div>
+    <% elsif flash[:error] %>
+      <div class="alert error">
+        <%= flash[:error] %>
+      </div>  
+    <% end %>
+  </div>
+
 
   <section>
     <%= yield %>
