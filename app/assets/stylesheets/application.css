@@ -231,3 +231,13 @@ section {
   font-size: 1.25em;
 }
 
+.alert_ {
+  background-color: #ECEC7D;
+  border: 1px solid #8F8F32;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  color: #2E2E10;
+  font-size: 1.25em;
+}
+
