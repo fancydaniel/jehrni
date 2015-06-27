@@ -1,12 +1,22 @@
 <div class="container">
   <nav class="navigation">
-    <div class="row">
-      <ul>
-        <li><%= link_to "Home", welcome_index_path %></li>
-        <li><%= link_to "About", welcome_about_path %></li>
-        <li><%= link_to "Feed", feeds_path %></li>
-        <li><%= link_to "Lists", lists_path %></li>
-      </ul>
+    <ul>
+      <li><%= link_to "Home", welcome_index_path %></li>
+      <li><%= link_to "About", welcome_about_path %></li>
+      <li><%= link_to "Feed", feeds_path %></li>
+      <li><%= link_to "Lists", lists_path %></li>
+
+
+    <div class="pull-right">
+      <% if current_user %>
+        <li> Hello <%= current_user.email %>! <%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to "Sign In", new_user_session_path %></li> 
+        <li>or</li>
+        <li><%= link_to "Sign Up", new_user_registration_path %></li>
+      <% end %>
     </div>
+    </ul>
+
   </nav>
 </div>

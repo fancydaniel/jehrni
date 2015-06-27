@@ -1,6 +1,13 @@
 <div id="feed">
   <h1>My Feed Page</h1>
     <p>Feed page will be located here</p>
+
+    <h5 class=""><%= link_to "New", new_feed_path %></h5>
+     <p>
+    <% @feeds.each do |feed| %>
+      <li><%= link_to feed.url, feed%></li>
+    <% end %>
+  </p>
 </div>
 
 

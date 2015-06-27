@@ -1,0 +1,8 @@
+<div class="wrapper">
+  <%= form_for @feed do |f| %>
+    <%= f.label :url, class: "" %>
+    <%= f.text_field :url, class: "" %><br />
+
+    <%= f.submit "Save", class: "d_button" %>
+  <% end %>
+</div>
