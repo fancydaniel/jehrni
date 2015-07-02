@@ -2,19 +2,28 @@ class FeedsController < ApplicationController
   
   def index
     @feeds = Feed.all
+    authorize @feeds
   end
 
   def show
     @feed = Feed.find(params[:id])
-    @entries = @feed.fetch_entries
+    authorize @feed
+
+    if params[:amount]
+      @entries = @feed.entries(params[:amount].to_i)
+    else
+      @entries = @feed.entries(3)
+    end
   end
 
   def new
     @feed = Feed.new
+    authorize @feed
   end
 
   def create
-    @feed = Feed.new
+    @feed = Feed.new(params.require(:feed).permit(:name, :url))
+    authorize @feed
 
     if @feed.save
       flash[:notice] = "feed was saved."

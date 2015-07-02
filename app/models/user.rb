@@ -5,6 +5,18 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable
   
+  def admin?
+    role == 'admin'
+  end
 
+  def moderator?
+    role == 'moderator'
+  end
+
+  def standard?
+    if current_user == !moderator? || current_user == !admin?
+      role == 'standard'
+    end
+  end   
 
 end

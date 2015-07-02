@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   root to: 'welcome#index'
 
   resources :feeds
-  resources :lists
+  resources :lists do
+    resources :items
+  end
 
 end

@@ -1,7 +1,8 @@
 class ListsController < ApplicationController
 
   def index
-    @lists = List.all
+    @lists = policy_scope(List)
+    authorize @lists
   end
 
   def show
@@ -14,6 +15,7 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(list_params)
+    authorize @list
     
     if @list.save
       flash[:notice] = "List was saved"
@@ -26,10 +28,12 @@ class ListsController < ApplicationController
 
   def edit
     @list = List.find(params[:id])
+    authorize @list
   end
 
   def update
     @list = List.find(params[:id])
+    authorize @list
 
     if @list.update(list_params)
       flash[:notice] = "List was updated."
@@ -42,6 +46,7 @@ class ListsController < ApplicationController
 
     def destroy
       @list = List.find(params[:id])
+      authorize @list
       
       if @list.destroy
         flash[:notice] = "List was deleted."

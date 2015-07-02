@@ -1,13 +1,10 @@
 class Item < ActiveRecord::Base
 
-  belongs_to :feed
+  # belongs_to :feed  # Check this later
   belongs_to :list
 
   default_scope { order('created_at DESC') }
 
-
-
- 
 
   private
 

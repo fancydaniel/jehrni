@@ -1,6 +1,8 @@
-<header>
-  <h1>
-    <%= @feed.url %>
-    <% end %>
-  </h1>
+<header class="lists">
+  <h4>
+    <%= @feed.url %><small><%= link_to "Show more", feed_path(@feed, amount: 6 ) if @entries.count == 3 %></small>
+  </h4>
+  <% @entries.each do |entry| %>
+    <p><%= link_to entry.title, entry.url, target: "_blank" %></p>
+  <% end %>
 </header>

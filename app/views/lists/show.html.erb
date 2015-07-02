@@ -1,6 +1,6 @@
 <div class="lists">
-  <h4><%= @list.name %></h4> <br />
-  <%= link_to 'Back', :back %>
-   
-
+  <h3><%= @list.name %>
+      <small><%= link_to 'Back', :back %></small>
+  </h3> <br />
+  <%= render 'items/form' %>  
 </div>

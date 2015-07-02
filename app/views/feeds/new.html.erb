@@ -1,4 +1,9 @@
+<% if current_user %>
+
 <div id="feed">
   <h2>Enter URL to follow</h2><br />
   <%= render "form" %>
 </div>
+<% else %>
+  <% redirect_to root_path %>
+  <% end %>

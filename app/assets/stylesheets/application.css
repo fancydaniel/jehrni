@@ -15,12 +15,10 @@
  */
 
  
- /*@import url(https://fonts.googleapis.com/css?family=Dosis:300,400,500,600);*/
- /*@import url(https://fonts.googleapis.com/css?family=Advent+Pro:400,500,300,600);*/
- /*@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700);*/
+
  @import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700);
- @import url(https://fonts.googleapis.com/css?family=Scheherazade);
  @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
+ @import url(https://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic,700italic);
  
 
 
@@ -60,21 +58,27 @@ section {
 p {
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
-  line-height: 1.37rem;
+  line-height: 1.43rem;
   font-size: 1rem;
 }
 
 small {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Playfair Display', sans-serif;
   font-weight: 400;
   line-height: 1rem;
   font-size: .8rem;
 }
 
 h1,h2,h3,h4,h5,h6{
-  font-family: 'Open Sans Condensed', serif;  
-  font-weight: 300;
+  font-family: 'Playfair Display', serif;  
+  font-weight: 400;
+  color: #1C3136;
 }
+
+.italic {
+  font-style: italic;
+}
+
 h1 {
   font-size: 3.0rem;
   line-height: 1.8rem;

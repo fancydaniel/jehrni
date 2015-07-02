@@ -3,7 +3,9 @@
     <ul>
       <li><%= link_to "Home", welcome_index_path %></li>
       <li><%= link_to "About", welcome_about_path %></li>
-      <li><%= link_to "Feed", feeds_path %></li>
+      <% if current_user %> 
+        <li><%= link_to "Feed", feeds_path %></li>
+      <% end %>
       <li><%= link_to "Lists", lists_path %></li>
 
 

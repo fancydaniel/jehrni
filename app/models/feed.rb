@@ -3,10 +3,10 @@ class Feed < ActiveRecord::Base
   has_many :items
 
 
-  def fetch_entries
+  def entries(num = 3)
     feed = Feedjira::Feed.fetch_and_parse(url)
-    feed.entries
-    feed.url
+    feed.entries.take(num)
+    # feed.url
     # add_items(feed.entries)  # Saving items to database
   end
 
