@@ -4,10 +4,18 @@ class Feed < ActiveRecord::Base
 
 
   def entries(num = 3)
+    # Feedjira::Feed.add_feed_class AtomFeedBurner
+
     feed = Feedjira::Feed.fetch_and_parse(url)
     feed.entries.take(num)
+
     # feed.url
     # add_items(feed.entries)  # Saving items to database
+  end
+
+  def feed_title
+    feed = Feedjira::Feed.fetch_and_parse(url)
+    title = feed.title
   end
 
   def self.update_from_feed_continuously(url, delay_interval = 30.minutes)

@@ -2,5 +2,11 @@
   <h3><%= @list.name %>
       <small><%= link_to 'Back', :back %></small>
   </h3> <br />
-  <%= render 'items/form' %>  
+
+  <%= render partial: 'items/form', locals: { list: @list, item: @new_item } %>
+
+  <% @items.each do |item| %>
+    <p><%= item.url %></p>
+  <% end %>
+
 </div>

@@ -31,6 +31,7 @@
 
 html {
   height: 100%;
+  font-size: 95.5%
 }
 
 body {
@@ -58,7 +59,7 @@ section {
 p {
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
-  line-height: 1.43rem;
+  line-height: 1.45rem;
   font-size: 1rem;
 }
 
@@ -145,7 +146,7 @@ a {
   font-family: 'Dosis', Helvetica, sans-serif;
 }
 
-a:hover {
+li a:hover {
   color: #262C2E;
   text-shadow: 3px 2px 2px rgba(106, 123, 127, 0.7);
   opacity: 1 !important;

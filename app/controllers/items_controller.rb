@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
   end
 
   def new
-      @list = List.find(params[:list_id])
+    @list = List.find(params[:list_id])
     @item = Item.new 
     authorize @items
   end 
@@ -19,19 +19,16 @@ class ItemsController < ApplicationController
   def create
     @list = List.find(params[:list_id])
 
-    @item = Item.new
-    # @item.list = @item
+    @item = Item.new(params.require(:item).permit(:url))
+    @item.list = @list
     authorize @item
 
     if @item.save
       flash[:notice] = "Item was saved"
-      redirect_to list_path
+      redirect_to @list
     else
       flash[:error] = "There was an error saving your item. Please try again."
       render :new
     end
-  end
-
-
   end
 end

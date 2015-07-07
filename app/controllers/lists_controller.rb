@@ -7,6 +7,8 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
+    @items = @list.items
+    @new_item = Item.new
   end
 
   def new
@@ -33,7 +35,7 @@ class ListsController < ApplicationController
 
   def update
     @list = List.find(params[:id])
-    authorize @list
+
 
     if @list.update(list_params)
       flash[:notice] = "List was updated."
@@ -44,18 +46,18 @@ class ListsController < ApplicationController
     end
   end
 
-    def destroy
-      @list = List.find(params[:id])
-      authorize @list
-      
-      if @list.destroy
-        flash[:notice] = "List was deleted."
-        redirect_to @list
-      else
-        flash[:error] = "There was error deleting your list. Please try again."
-        redirect_to @list
-      end
+  def destroy
+    @list = List.find(params[:id])
+    authorize @list
+    
+    if @list.destroy
+      flash[:notice] = "List was deleted."
+      redirect_to @list
+    else
+      flash[:error] = "There was error deleting your list. Please try again."
+      redirect_to @list
     end
+  end
 
 
   private
