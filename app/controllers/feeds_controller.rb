@@ -2,6 +2,8 @@ class FeedsController < ApplicationController
   
   def index
     @feeds = Feed.all
+    @feed = Feed.find(params[:id])
+    @entries = @feed.entries
     authorize @feeds
   end
 
