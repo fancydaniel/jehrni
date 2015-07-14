@@ -4,9 +4,16 @@
   </h3> <br />
 
   <%= render partial: 'items/form', locals: { list: @list, item: @new_item } %>
-
+  <br /> <!-- Breaks added for functionality now, redesign later -->
   <% @items.each do |item| %>
-    <p><%= item.url %></p>
+    <p><%= link_to item.url, item.url, target: "_blank" %></p> <br /> <!-- remove <br> on redesign -->
+    <% if current_user %>
+      <small><%= link_to "Edit", edit_list_item_path(@list, item) %></small>
+      <small><%= link_to "Delete", [@list, item], method: :delete %></small>
+    <% end %>
   <% end %>
 
+  <% @saved_entries.each do |entry| %>
+    <p><%= entry.url %></p>
+  <% end %>
 </div>

@@ -9,6 +9,7 @@ class ListsController < ApplicationController
     @list = List.find(params[:id])
     @items = @list.items
     @new_item = Item.new
+    @saved_entries = @list.saved_entries
   end
 
   def new
@@ -17,6 +18,7 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(list_params)
+    @list.user = current_user
     authorize @list
     
     if @list.save
@@ -30,7 +32,7 @@ class ListsController < ApplicationController
 
   def edit
     @list = List.find(params[:id])
-    authorize @list
+
   end
 
   def update
@@ -48,7 +50,7 @@ class ListsController < ApplicationController
 
   def destroy
     @list = List.find(params[:id])
-    authorize @list
+
     
     if @list.destroy
       flash[:notice] = "List was deleted."

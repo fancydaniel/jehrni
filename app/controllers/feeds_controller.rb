@@ -1,10 +1,10 @@
 class FeedsController < ApplicationController
   
   def index
-    @feeds = Feed.all
-    @feed = Feed.find(params[:id])
-    @entries = @feed.entries
+    @feeds = Feed.all    
     authorize @feeds
+
+    @lists = current_user.lists
   end
 
   def show

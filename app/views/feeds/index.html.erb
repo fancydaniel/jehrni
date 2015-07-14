@@ -7,12 +7,19 @@
       <% @feeds.each do |feed| %>
         <p>
           <%= link_to feed.url, feed%>
-          <%= link_to "Edit", edit_feed_path(feed) %> 
-          <%= link_to "Delete", feed_path(feed), method: :delete, data: { confirm: 'Are you sure you want to delete this feed url?' } %>
+          <%= link_to "Edit", edit_feed_path(feed), class: "blue" %> 
+          <%= link_to "Delete", feed_path(feed), method: :delete, data: { confirm: 'Are you sure you want to delete this feed url?' }, class: "blue" %>
         </p>
         <% feed.entries.each do |entry| %>
           <p><%= entry.title %></p>
             <p><%= sanitize entry.summary,  length: 30 %></p>
+
+            <%= form_tag entries_path do %>
+              <%= hidden_field_tag :url, entry.url %>
+              <%= select_tag :list, options_from_collection_for_select(@lists, :id, :name) %>
+              <%= submit_tag "Save" %>
+            <% end %>
+
         <% end %> <br />
       <% end %>
 

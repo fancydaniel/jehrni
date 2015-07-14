@@ -2,8 +2,8 @@ class List < ActiveRecord::Base
   belongs_to :user
   has_many :items
 
-  has_many :entries
-  has_many :feed_entries, through: :entries, source: :feed
+  has_many :saved_entries
+
 
   validates :name, length: { in: 3..40 }
 

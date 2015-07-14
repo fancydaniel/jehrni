@@ -19,7 +19,7 @@ class ItemsController < ApplicationController
   def create
     @list = List.find(params[:list_id])
 
-    @item = Item.new(params.require(:item).permit(:url))
+    @item = Item.new(item_params)
     @item.list = @list
     authorize @item
 
@@ -31,4 +31,41 @@ class ItemsController < ApplicationController
       render :new
     end
   end
+
+  def edit
+    @list = List.find(params[:list_id])
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @list = List.find(params[:list_id])
+    @item = Item.find(params[:id])
+
+    if @item.update_attributes(item_params)
+      flash[:notice] = "Your item was successfully updated."
+      redirect_to @list
+    else
+      flash[:error] = "There was an error. Please try again."
+      render :edit
+    end
+  end
+
+  def destroy
+    @list = List.find(params[:list_id])
+    @item = Item.find(params[:id])
+
+    if @item.destroy
+      flash[:notice] = "Item was deleted."
+      redirect_to @list
+    else
+      flash[:error] = "There was an error removing the item. Please try again."
+      redirect_to @item
+    end
+  end
+
+  private
+    def item_params
+       params.require(:item).permit(:url) 
+    end
+
 end
