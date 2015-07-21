@@ -1,7 +1,7 @@
 <header class="lists">
   <h4>
     <%= @title %><br />
-    <%= @feed.url %><small><%= link_to "Show more", feed_path(@feed, amount: 6 ) if @entries.count == 3 %></small>
+    <h6><%= @feed.url %></h6><small><%= link_to "Show more", feed_path(@feed, amount: 6 ) if @entries.count == 3 %></small>
   </h4>
   <br />
   <% @entries.each do |entry| %>

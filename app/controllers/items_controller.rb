@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
   def show
     @list = List.find(params[:list_id])
     @item = Item.find(params[:id])
+    @image = Image.find(params[:id])
   end
 
   def new
@@ -18,9 +19,9 @@ class ItemsController < ApplicationController
 
   def create
     @list = List.find(params[:list_id])
-
-    @item = Item.new(item_params)
+    @item = Item.new_with_preview(item_params)
     @item.list = @list
+  
     authorize @item
 
     if @item.save

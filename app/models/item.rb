@@ -1,24 +1,14 @@
 class Item < ActiveRecord::Base
-
-  # belongs_to :feed  # Check this later
   belongs_to :list
+
+  validates :url, presence: true
 
   default_scope { order('created_at DESC') }
 
-
-  private
-
-    # def self.add_items(items)
-    #   items.each do |item|
-    #     unless exists? guid: item.id
-    #       create!(
-    #         title:        item.title,
-    #         summary:      item.summary,
-    #         url:          item.url,
-    #         published_at: item.published,
-    #         guid:         item.entry_id
-    #       )
-    #     end
-    #   end
-    # end
+  def self.new_with_preview(params)
+    item = new(params)
+    preview = PreviewService.new(params[:url])
+    item.image_url = preview.image_url
+    item
+  end
 end

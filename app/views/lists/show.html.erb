@@ -6,14 +6,26 @@
   <%= render partial: 'items/form', locals: { list: @list, item: @new_item } %>
   <br /> <!-- Breaks added for functionality now, redesign later -->
   <% @items.each do |item| %>
-    <p><%= link_to item.url, item.url, target: "_blank" %></p> <br /> <!-- remove <br> on redesign -->
-    <% if current_user %>
-      <small><%= link_to "Edit", edit_list_item_path(@list, item) %></small>
-      <small><%= link_to "Delete", [@list, item], method: :delete %></small>
-    <% end %>
+    <p>
+      <%= image_tag(item.image_url) %>
+      <%= link_to item.url, item.url, target: "_blank" %> <br /> <!-- remove <br> on redesign -->
+        <% if current_user %>
+          <small><%= link_to "Edit", edit_list_item_path(@list, item) %></small>
+          <small><%= link_to "Delete", [@list, item], method: :delete %></small>
+              <% end %> 
+    </p>
+
   <% end %>
 
   <% @saved_entries.each do |entry| %>
-    <p><%= entry.url %></p>
+    <p>
+      <%= image_tag(entry.image_url) %>
+      <%= link_to entry.url, entry.url, target: "_blank" %><br />
+        <% if current_user %>
+        <small><%= link_to "Edit", edit_entry_path(entry) %></small>
+        <small><%= link_to "Delete",  method: :delete %></small> <!-- deleted following: entry_path[@list, entry], -->
+      <% end %>
+    </p>
+    </p>
   <% end %>
 </div>

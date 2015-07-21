@@ -1,0 +1,10 @@
+<div class="lists">
+
+  <%= form_for [@list, @saved_entry] do |f| %>
+    <%= f.label :url, "URL", class: "" %>
+    <%= f.text_field :url, class: "" %><br />
+
+    <%= f.submit "Save", class: "d_button" %>
+  <% end %>
+
+</div>

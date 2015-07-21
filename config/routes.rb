@@ -15,6 +15,6 @@ Rails.application.routes.draw do
     resources :items
   end
 
-  resources :entries, only: [:create]
+  resources :entries, only: [:create, :edit, :destroy, :update]
 
 end

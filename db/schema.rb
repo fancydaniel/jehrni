@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150713025121) do
+ActiveRecord::Schema.define(version: 20150720025822) do
 
   create_table "feeds", force: true do |t|
     t.string   "name"
@@ -19,6 +19,16 @@ ActiveRecord::Schema.define(version: 20150713025121) do
     t.datetime "updated_at"
     t.string   "url"
   end
+
+  create_table "images", force: true do |t|
+    t.string  "url"
+    t.string  "image_url"
+    t.integer "item_id"
+    t.integer "saved_entries_id"
+  end
+
+  add_index "images", ["item_id"], name: "index_images_on_item_id"
+  add_index "images", ["saved_entries_id"], name: "index_images_on_saved_entries_id"
 
   create_table "items", force: true do |t|
     t.string   "title"
@@ -30,6 +40,7 @@ ActiveRecord::Schema.define(version: 20150713025121) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "list_id"
+    t.string   "image_url"
   end
 
   add_index "items", ["list_id"], name: "index_items_on_list_id"
@@ -48,6 +59,7 @@ ActiveRecord::Schema.define(version: 20150713025121) do
     t.integer  "list_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_url"
   end
 
   add_index "saved_entries", ["list_id"], name: "index_saved_entries_on_list_id"
