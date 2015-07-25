@@ -1,7 +1,103 @@
 // Place all the styles related to the Feeds controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+ @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
 
 /* ---- NAV STYLES ---- */
+
+/* ---- FEED STYLES ---- */
+
+.feed_box {
+/*  background-color: #F0F0F0;
+  border: 1px solid black;*/
+  padding: 12px 12px 0 0;
+  margin-bottom: 25px;
+  width: 100%;
+  overflow: auto;
+
+}
+
+.feed_url {
+  border-bottom: 2px solid #A6C1C7;
+  font-size: 1.35em;
+  padding-top: 12px;
+}
+
+.entry_title a {
+  font-family: 'Playfair Display', sans-serif;
+  font-size: 1.18em;
+  max-width: 100%;
+  display: block;
+  float: left;
+  padding-right: 10px;
+}
+
+
+.entry_wrapper {
+  overflow: auto;
+}
+.entry_box {
+  float: left;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.entry_info {
+  float: left;
+  margin-bottom: 10px;
+}
+
+.select_tag {
+  text-align: right;
+  width: 170px;
+  float: right;
+  margin-left: 5px;
+}
+
+
+select {
+  color: #676F73;
+  text-align: center;
+  background-color: rgba(153,218,255,0.15);
+  border-radius: 2px;
+  padding-left: 3px;
+  font-size: 12px;
+  line-height: 0.65em;
+  border: 0;
+  border-radius: 0;
+  height: 28px;
+  -webkit-appearance: none;
+}
+
+.show_feed_url {
+  border-bottom: 2px solid #A6C1C7;
+  font-size: 0.7em;
+  padding-top: 12px;
+}
+
+#show_more a {
+  color: #258EA6;
+  text-decoration: none;
+  font-weight: 300;
+  font-size: 1.15em !important;
+  font-family: 'Open Sans', Helvetica, sans-serif;
+}
+
+.btn {
+  color: #fff;
+  font-size: 12px;
+  height: 25px;
+  margin-bottom: 5px;
+  padding: 4px 4px;
+  background-color: #88c2e3;
+  -webkit-box-shadow: 1px 1px 1px 0px rgba(60,85,99,0.7);
+  -moz-box-shadow: 1px 1px 1px 0px rgba(60,85,99,0.7);
+  box-shadow: 1px 1px 1px 0px rgba(60,85,99,0.7);
+  border: none;
+  vertical-align: top;
+}
+
+.btn:hover {
+  background: #1c9ae8;
+}
 

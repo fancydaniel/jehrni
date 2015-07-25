@@ -15,6 +15,11 @@ class Feed < ActiveRecord::Base
     title = feed.title
   end
 
+  def feed_thumbnail
+    eedjira::Feed.add_common_feed_entry_element("media:thumbnail", value: url,)
+    thumbnail = Feedjira::Feed.fetch_and_parse(url).image
+  end
+
   def self.update_from_feed_continuously(url, delay_interval = 30.minutes)
     feed = Feedjira::Feed.fetch_and_parse(url)
     add_items(feed.items)

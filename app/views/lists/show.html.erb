@@ -5,27 +5,34 @@
 
   <%= render partial: 'items/form', locals: { list: @list, item: @new_item } %>
   <br /> <!-- Breaks added for functionality now, redesign later -->
-  <% @items.each do |item| %>
-    <p>
-      <%= image_tag(item.image_url) %>
-      <%= link_to item.url, item.url, target: "_blank" %> <br /> <!-- remove <br> on redesign -->
-        <% if current_user %>
-          <small><%= link_to "Edit", edit_list_item_path(@list, item) %></small>
-          <small><%= link_to "Delete", [@list, item], method: :delete %></small>
-              <% end %> 
-    </p>
-
-  <% end %>
+    <% @items.each do |item| %>
+      <div class="list_box">
+        <p>
+          <div class="list_image"><%= image_tag(item.image_url) %></div>
+          <%= link_to item.url, item.url, target: "_blank" %> <br /> <!-- remove <br> on redesign -->
+            <% if current_user %>
+              <div class="list_edit_delete">              
+                <small><%= link_to "Edit", edit_list_item_path(@list, item) %></small>
+                <small><%= link_to "Delete", [@list, item], method: :delete %></small>
+              </div>
+            <% end %> 
+        </p>
+      </div>  
+      <% end %>
 
   <% @saved_entries.each do |entry| %>
-    <p>
-      <%= image_tag(entry.image_url) %>
-      <%= link_to entry.url, entry.url, target: "_blank" %><br />
+    <div class="list_box">
+      <div class="list_image"><%= image_tag(entry.image_url) %></div>
+      <p>
+        <%= link_to entry.url, entry.url, target: "_blank" %><br />
         <% if current_user %>
-        <small><%= link_to "Edit", edit_entry_path(entry) %></small>
-        <small><%= link_to "Delete",  method: :delete %></small> <!-- deleted following: entry_path[@list, entry], -->
-      <% end %>
-    </p>
-    </p>
+          <div class="list_edit_delete">
+            <small><%= link_to "Edit", edit_entry_path(entry) %></small>
+            <small><%= link_to "Delete", entry_path(entry), method: :delete %></small>
+          </div>
+        <% end %>
+      </p>
+      </p>
+    </div>
   <% end %>
 </div>

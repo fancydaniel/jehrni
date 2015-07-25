@@ -50,6 +50,7 @@ class ListsController < ApplicationController
 
   def destroy
     @list = List.find(params[:id])
+    @saved_entries = @list.saved_entries  # Added to try and delete saved_entry in show page
 
     
     if @list.destroy

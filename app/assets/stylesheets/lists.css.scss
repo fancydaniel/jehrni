@@ -1,3 +1,32 @@
 // Place all the styles related to the Lists controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.list_image img{
+  display: block;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.list_box {
+  float: left;
+  height: 100%;
+  width: 326px;
+  background-color: #f1f1f1;
+  padding: 10px;
+  margin: 0 10px 15px 0;
+}
+
+.list_box a {
+  font-size: 1.15em;
+}
+
+.list_edit_delete {
+  display: inline-block;
+  float: right;
+  opacity: 0.65;
+}
+
+.list_edit_delete:hover {
+  opacity: 1;
+}

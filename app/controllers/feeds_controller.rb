@@ -1,7 +1,7 @@
 class FeedsController < ApplicationController
   
   def index
-    @feeds = Feed.all    
+    @feeds = Feed.all
     authorize @feeds
 
     @lists = current_user.lists
@@ -12,6 +12,8 @@ class FeedsController < ApplicationController
     @entry = @feed.entries
     @title = @feed.feed_title
     authorize @feed
+
+    @lists = current_user.lists 
 
     if params[:amount]
       @entries = @feed.entries(params[:amount].to_i)

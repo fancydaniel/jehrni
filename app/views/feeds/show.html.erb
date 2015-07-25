@@ -1,11 +1,19 @@
 <header class="lists">
   <h4>
-    <%= @title %><br />
-    <h6><%= @feed.url %></h6><small><%= link_to "Show more", feed_path(@feed, amount: 6 ) if @entries.count == 3 %></small>
+    <span ><%= @title %></span><br />
+    <p class="show_feed_url"><%= link_to @feed.url %></p><small id="show_more"><%= link_to "Show more", feed_path(@feed, amount: 6 ) if @entries.count == 3 %></small>
   </h4>
   <br />
   <% @entries.each do |entry| %>
-    <p><%= link_to entry.title, entry.url, target: "_blank" %></p>
+    <p class="entry_title"><%= link_to entry.title, entry.url, class: "entry_title",target: "_blank" %></p>
+
+    <div class="select_tag">
+      <%= form_tag entries_path do %>
+        <%= hidden_field_tag :url, entry.url %>
+        <%= select_tag :list, options_from_collection_for_select(@lists, :id, :name) %>
+        <%= submit_tag "Add To List", class: "btn" %>
+      <% end %>
+    </div>
     
     <p><%= sanitize get_info(entry),  length: 30 %></p>
     <br />
