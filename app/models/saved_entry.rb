@@ -1,6 +1,9 @@
 class SavedEntry < ActiveRecord::Base
   validates :url, presence: true
 
+  acts_as_taggable
+  acts_as_taggable_on :saved_entry
+
   belongs_to :list
 
   def self.new_with_preview(params)

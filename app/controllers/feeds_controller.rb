@@ -9,7 +9,7 @@ class FeedsController < ApplicationController
 
   def show
     @feed = Feed.find(params[:id])
-    @entry = @feed.entries
+    # @entry = @feed.entries
     @title = @feed.feed_title
     authorize @feed
 

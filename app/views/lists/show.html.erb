@@ -10,6 +10,10 @@
         <p>
           <div class="list_image"><%= image_tag(item.image_url) %></div>
           <%= link_to item.url, item.url, target: "_blank" %> <br /> <!-- remove <br> on redesign -->
+          <br />
+          <p>
+            Tags: <%= raw item.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+          </p>
             <% if current_user %>
               <div class="list_edit_delete">              
                 <small><%= link_to "Edit", edit_list_item_path(@list, item) %></small>
@@ -25,6 +29,10 @@
       <div class="list_image"><%= image_tag(entry.image_url) %></div>
       <p>
         <%= link_to entry.url, entry.url, target: "_blank" %><br />
+        <br />
+        <p>
+            Tags: <%= raw entry.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+        </p>
         <% if current_user %>
           <div class="list_edit_delete">
             <small><%= link_to "Edit", edit_entry_path(entry) %></small>

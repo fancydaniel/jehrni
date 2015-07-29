@@ -30,4 +30,8 @@ class EntriesController < ApplicationController
     @saved_entry = SavedEntry.find(params[:id])
   end
 
+  private
+
+
+
 end

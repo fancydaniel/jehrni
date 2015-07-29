@@ -3,6 +3,9 @@ class Item < ActiveRecord::Base
 
   validates :url, presence: true
 
+  acts_as_taggable 
+  acts_as_taggable_on :item
+
   default_scope { order('created_at DESC') }
 
   def self.new_with_preview(params)

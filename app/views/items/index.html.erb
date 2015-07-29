@@ -1,0 +1,16 @@
+<div class="lists">
+  <h2><%= Tag.name %></h2>
+
+  <% @items.each do |item| %>
+    <div class="list_box">
+      <p>
+        <div class="list_image"><%= image_tag(item.image_url) %></div>
+        <%= link_to item.url, item.url, target: "_blank" %> <br /> <!-- remove <br> on redesign -->
+        <br />
+        <p>
+          Tags: <%= raw item.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+        </p>
+      </p>
+    </div>  
+  <% end %>
+</div>

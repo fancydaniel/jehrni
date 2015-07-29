@@ -1,7 +1,11 @@
 class ListsController < ApplicationController
 
   def index
-    @lists = policy_scope(List)
+    if params[:public].present?
+      @lists = List.where(public: true)
+    else
+      @lists = policy_scope(List)
+    end
     authorize @lists
   end
 
@@ -32,7 +36,7 @@ class ListsController < ApplicationController
 
   def edit
     @list = List.find(params[:id])
-
+    @saved_entry = @list.saved_entry # Added to try and get edit page to render
   end
 
   def update

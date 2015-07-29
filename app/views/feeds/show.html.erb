@@ -6,7 +6,7 @@
   <br />
   <% @entries.each do |entry| %>
     <p class="entry_title"><%= link_to entry.title, entry.url, class: "entry_title",target: "_blank" %></p>
-
+    <%= image_tag entry.image %>
     <div class="select_tag">
       <%= form_tag entries_path do %>
         <%= hidden_field_tag :url, entry.url %>

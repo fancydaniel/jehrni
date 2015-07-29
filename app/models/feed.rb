@@ -1,9 +1,8 @@
 class Feed < ActiveRecord::Base
-
   has_many :items
 
-
   def entries(num = 3)
+    Feedjira::Feed.add_common_feed_entry_element("img")
     feed = Feedjira::Feed.fetch_and_parse(url)
     feed.entries.take(num)
 
@@ -15,10 +14,10 @@ class Feed < ActiveRecord::Base
     title = feed.title
   end
 
-  def feed_thumbnail
-    eedjira::Feed.add_common_feed_entry_element("media:thumbnail", value: url,)
-    thumbnail = Feedjira::Feed.fetch_and_parse(url).image
-  end
+  # def feed_thumbnail
+  #   Feedjira::Feed.add_common_feed_entry_element("image")
+  #   thumbnail = Feedjira::Feed.fetch_and_parse(url).image
+  # end
 
   def self.update_from_feed_continuously(url, delay_interval = 30.minutes)
     feed = Feedjira::Feed.fetch_and_parse(url)

@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+
+  get 'tags/:tag', to: 'items#index', as: :tag
+
   devise_for :users
   get 'lists/index'
 

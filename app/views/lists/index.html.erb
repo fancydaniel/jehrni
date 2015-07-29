@@ -4,6 +4,8 @@
   <% if policy(List.new).create? %>
     <h5><%= link_to "Create New List", new_list_path %></h5>
   <% end %>
+    
+    <h5><%= link_to "Public Lists", lists_path(public: true) %></h5>
 
   <% @lists.each do |list| %>
     <div class="thirds">

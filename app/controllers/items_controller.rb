@@ -1,7 +1,11 @@
 class ItemsController < ApplicationController
 
   def index
-    @items = Item.all
+     if params[:tag]
+      @items = Item.tagged_with(params[:tag])
+    else
+      @items = Item.all
+    end
     authorize @items
   end
 
@@ -66,7 +70,7 @@ class ItemsController < ApplicationController
 
   private
     def item_params
-       params.require(:item).permit(:url) 
+       params.require(:item).permit(:url, :name, :tag_list) 
     end
 
 end

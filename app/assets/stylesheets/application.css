@@ -19,6 +19,7 @@
  @import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700);
  @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
  @import url(https://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic,700italic);
+ @import url(http://fonts.googleapis.com/css?family=Kaushan+Script);
  
 
 
@@ -60,6 +61,12 @@ section {
 --------------------------------------------------------------------------
  ---- */
 
+.jehrni {
+  font-family: 'Kaushan Script', 'Playfair Display' cursive;
+  color: #5B6A6E;
+  font-size: 3.95rem;
+  text-shadow: -1px 1px 0 #BFDEE5, -3px 2px 0 #7B8F94;
+}
 
 p {
   font-family: 'Open Sans', sans-serif;

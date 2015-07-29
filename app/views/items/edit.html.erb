@@ -5,8 +5,12 @@
   </h4> <br />
   <%= form_for [@list, @item] do |f| %>
     <%= f.label :url, "URL" %>
-    <%= f.text_field :url %>
+    <%= f.text_field :url %><br />
 
+    <br />
+    <%= f.label :tag_list, "Tags (separated by commas)" %><br />
+    <%= f.text_field :tag_list %>
+    <br />
     <%= f.submit "Save" %>
 
   <% end %>
